@@ -4,23 +4,20 @@
     "password": "password",
     "database": "sequelize_burger",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": "3306"
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "password",
     "database": "sequelize_burger",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": "3306"
+    "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "password",
     "database": "sequelize_burger",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": "3306"
+    "dialect": "mysql"
   }
 }
