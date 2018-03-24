@@ -20,7 +20,7 @@ module.exports = (app) => {
         });
     });
 
-    app.put("/whattheF/:id", (req, res) => {
+    app.put("/putDevour/:id", (req, res) => {
         console.log(req.body);
         db.Burger.update({
             devoured: 1,

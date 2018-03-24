@@ -7,7 +7,7 @@ $(function () {
         };
 
         // Send the PUT request.
-        $.ajax('/whattheF/' + id, {
+        $.ajax('/putDevour/' + id, {
             type: "PUT",
             data: devoured
         }).then(() => location.reload());
