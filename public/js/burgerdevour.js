@@ -2,20 +2,16 @@
 $(function () {
     $(".devour").on("click", function (event) {
         var id = $(this).data('id');
-        var isDevoured = {
-            devoured: true
+        var devoured = {
+            devoured: 1
         };
 
         // Send the PUT request.
-        $.ajax('/devoured/' + id, {
+        $.ajax('/whattheF/' + id, {
             type: "PUT",
-            data: isDevoured
-        }).then(
-            function () {
-                console.log("changed devoured status to ", isDevoured.devoured);
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
+            data: devoured
+        }).then(() => location.reload());
+
     });
-}); 
+});
+

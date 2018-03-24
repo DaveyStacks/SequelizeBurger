@@ -1,45 +1,35 @@
-const express = require('express');
-const router = express.Router();
-const burger = require("../models/burger.js");
-const connection = require('../config/connection.js')
-
-router.get("/", (req, res) => {
-    burger.selectAll(function (data) {
-        const hbsObject = {
-            burger: data
-        };
-        console.log(hbsObject);
-        res.render("index", hbsObject);
-    });
-});
-
-
-router.post("/burger", (req, res) => {
-    burger.insertOne([
-        "burger_name", "devoured"
-    ], [
-            req.body.burger, false
-        ], function (result) {
-            res.redirect('/');
+// const express = require('express');
+// const router = express.Router();
+// // const burger = require("../models/burger.js");
+// const connection = require('../config/connection.js')
+const db = require("../models");
+let burgerMap;
+module.exports = (app) => {
+    app.get("/", (req, res) => {
+        db.Burger.findAll({}).then(function (result) {
+            burgerMap = result.map(x => x.dataValues);
+            res.render("index", { burger: burgerMap });
         });
-});
+    });
 
-router.put("/devoured/:id", (req, res) => {
-    const condition = "id = " + req.params.id;
-    console.log("condition", condition);
-    console.log(req.body);
+    app.post("/burger", (req, res) => {
+        db.Burger.create({
+            burger_name: req.body.burger,
+        }).then(function (result) {
+            res.redirect("/");
+        });
+    });
 
-    burger.updateOne({
-        devoured: req.body.devoured
-    }, condition, function (result) {
-        if (result.changedRows == 0) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
-    })
-});
-
-module.exports = router;
-
-
+    app.put("/whattheF/:id", (req, res) => {
+        console.log(req.body);
+        db.Burger.update({
+            devoured: 1,
+        }, {
+                where: {
+                    id: req.params.id,
+                }
+            }).then(function (result) {
+                res.redirect(303, "/");
+            });
+    });
+};
