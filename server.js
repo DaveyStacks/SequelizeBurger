@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -26,6 +26,6 @@ require('./controllers/burgersController.js')(app);
 // 
 db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
-        console.log("App listening on PORT " + PORT);
+        console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
     });
 });
