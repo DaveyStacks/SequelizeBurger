@@ -2,7 +2,7 @@ h1, h2, .create-form, li, button {
     text-align: center;
     font-family: 'Walter Turncoat', cursive;
     color: rgb(247, 247, 247);
-    font-weight: extra bold;
+    font-weight: bolder;
 }
 
 ul {
