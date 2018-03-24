@@ -1,8 +1,27 @@
-h1, h2, .create-form, ul {
-    text-align: center
+h1, h2, .create-form, li, button {
+    text-align: center;
+    font-family: 'Walter Turncoat', cursive;
+    color: rgb(247, 247, 247);
+    font-weight: extra bold;
 }
 
 ul {
     text-align: center;
     list-style-position: inside;
 }
+
+.kahuna-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    background-color:  #89b7c9;
+}
+
+body {
+    background-color: #89b7c9;
+ }
+
+ button {
+    background-color: red;
+ }
